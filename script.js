@@ -7,19 +7,15 @@ const winMessage = document.getElementById('win-message');
 const backgroundMusic = document.getElementById('background-music');
 const winSound = document.getElementById('win-sound');
 
-// Gambar puzzle yang akan dibagi
-const imageUrl = 'bubu_dudu_puzzle.jpg'; // Ganti dengan foto spesial kamu
-
-// Grid size
+const imageUrl = 'bubu_dudu_puzzle.jpg'; // Ganti dengan gambar ulang tahun atau gambar spesial
 const gridSize = 6;
 let pieces = [];
 
-// Membuat potongan puzzle
 function createPieces() {
     puzzleBoard.innerHTML = '';
     pieces.length = 0;
 
-    const pieceWidth = 480 / gridSize; // Ukuran potongan berdasarkan grid
+    const pieceWidth = 480 / gridSize;
 
     for (let i = 0; i < gridSize * gridSize; i++) {
         const x = i % gridSize;
@@ -53,7 +49,6 @@ function createPieces() {
     }
 }
 
-// Menghandle drag dan drop
 let draggedPiece = null;
 
 function handleDragStart(e) {
@@ -72,18 +67,15 @@ function handleDrop(e) {
         const draggedId = draggedPiece.dataset.id;
         const targetId = targetPiece.dataset.id;
 
-        // Swap posisi potongan
         draggedPiece.style.backgroundPosition = `-${pieces[targetId].x * 80}px -${pieces[targetId].y * 80}px`;
         targetPiece.style.backgroundPosition = `-${pieces[draggedId].x * 80}px -${pieces[draggedId].y * 80}px`;
 
-        // Swap data posisi potongan
         const temp = pieces[draggedId];
         pieces[draggedId] = pieces[targetId];
         pieces[targetId] = temp;
     }
 }
 
-// Tombol Start Game
 startBtn.addEventListener('click', () => {
     openingScreen.style.display = 'none';
     puzzleContainer.style.display = 'block';
@@ -91,15 +83,13 @@ startBtn.addEventListener('click', () => {
     createPieces();
 });
 
-// Tombol Finish Game
 finishBtn.addEventListener('click', () => {
     winSound.play();
     backgroundMusic.pause();
     winMessage.style.display = 'block';
-    createConfetti(); // Tambahkan efek confetti
+    // Add confetti effect here
 });
 
-// Cek apakah puzzle sudah selesai
 function checkPuzzleCompleted() {
     let completed = true;
     for (let i = 0; i < pieces.length; i++) {
@@ -114,20 +104,6 @@ function checkPuzzleCompleted() {
 
     if (completed) {
         finishBtn.style.display = 'block';
-    }
-}
-
-// Membuat efek confetti
-function createConfetti() {
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = `${Math.random() * window.innerWidth}px`;
-        document.body.appendChild(confetti);
-
-        // Hapus confetti setelah animasi selesai
-        setTimeout(() => {
-            confetti.remove();
-        }, 3000);
+        // Add confetti effect here
     }
 }
