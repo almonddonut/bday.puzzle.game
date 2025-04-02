@@ -94,6 +94,7 @@ startBtn.addEventListener('click', () => {
 // Tombol Finish Game
 finishBtn.addEventListener('click', () => {
     winSound.play();
+    backgroundMusic.pause(); // Musik berhenti setelah game selesai
     winMessage.style.display = 'block';
 });
 
