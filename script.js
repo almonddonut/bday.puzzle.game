@@ -82,4 +82,41 @@ function handleDrop(e) {
         pieces[targetId] = temp;
 
         // Update posisi x dan y untuk setiap potongan puzzle
-        [pieces[drag
+        [pieces[draggedId].x, pieces[targetId].x] = [pieces[targetId].x, pieces[draggedId].x];
+        [pieces[draggedId].y, pieces[targetId].y] = [pieces[targetId].y, pieces[draggedId].y];
+    }
+}
+
+// Tombol Start Game
+startBtn.addEventListener('click', () => {
+    openingScreen.style.display = 'none';
+    puzzleContainer.style.display = 'block';
+    backgroundMusic.play();
+    finishBtn.style.display = 'none';
+    createPieces();
+});
+
+// Tombol Finish Game
+finishBtn.addEventListener('click', () => {
+    winSound.play();
+    backgroundMusic.pause(); // Musik berhenti setelah game selesai
+    winMessage.style.display = 'block';
+});
+
+// Cek apakah puzzle sudah selesai
+function checkPuzzleCompleted() {
+    let completed = true;
+    for (let i = 0; i < pieces.length; i++) {
+        const piece = pieces[i];
+        const pieceElement = document.querySelector(`.piece[data-id='${piece.id}']`);
+
+        if (piece.x !== piece.correctX || piece.y !== piece.correctY) {
+            completed = false;
+            break;
+        }
+    }
+
+    if (completed) {
+        finishBtn.style.display = 'block'; // Tampilkan tombol finish jika selesai
+    }
+}
