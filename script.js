@@ -10,22 +10,27 @@ const winSound = document.getElementById('win-sound');
 // Gambar puzzle yang akan dibagi (gunakan gambar bubu_dudu_puzzle.jpg)
 const imageUrl = 'bubu_dudu_puzzle.jpg'; // Ganti dengan foto spesial kamu
 
-// Potongan gambar puzzle
-const pieces = [];
-const gridSize = 6; // Ukuran grid 6x6
+// Grid size
+const gridSize = 6;
+let pieces = [];
 
 // Membuat potongan puzzle
 function createPieces() {
     puzzleBoard.innerHTML = '';
     pieces.length = 0;
 
+    const pieceWidth = 480 / gridSize; // Ukuran potongan berdasarkan grid
+
     for (let i = 0; i < gridSize * gridSize; i++) {
         const x = i % gridSize;
         const y = Math.floor(i / gridSize);
+
         const piece = {
             id: i,
             x: x,
             y: y,
+            correctX: x,
+            correctY: y,
         };
 
         pieces.push(piece);
@@ -33,13 +38,16 @@ function createPieces() {
         const pieceElement = document.createElement('div');
         pieceElement.classList.add('piece');
         pieceElement.style.backgroundImage = `url(${imageUrl})`;
-        pieceElement.style.backgroundPosition = `-${x * 100}px -${y * 100}px`;
+        pieceElement.style.width = `${pieceWidth}px`;
+        pieceElement.style.height = `${pieceWidth}px`;
+        pieceElement.style.backgroundPosition = `-${x * pieceWidth}px -${y * pieceWidth}px`;
         pieceElement.setAttribute('draggable', true);
         pieceElement.dataset.id = piece.id;
 
         pieceElement.addEventListener('dragstart', handleDragStart);
         pieceElement.addEventListener('dragover', handleDragOver);
         pieceElement.addEventListener('drop', handleDrop);
+        pieceElement.addEventListener('dragend', checkPuzzleCompleted);
 
         puzzleBoard.appendChild(pieceElement);
     }
@@ -59,13 +67,14 @@ function handleDragOver(e) {
 function handleDrop(e) {
     e.preventDefault();
     const targetPiece = e.target;
+
     if (draggedPiece !== targetPiece) {
         const draggedId = draggedPiece.dataset.id;
         const targetId = targetPiece.dataset.id;
 
         // Swap posisi potongan
-        draggedPiece.style.backgroundPosition = `-${pieces[targetId].x * 100}px -${pieces[targetId].y * 100}px`;
-        targetPiece.style.backgroundPosition = `-${pieces[draggedId].x * 100}px -${pieces[draggedId].y * 100}px`;
+        draggedPiece.style.backgroundPosition = `-${pieces[targetId].x * 80}px -${pieces[targetId].y * 80}px`;
+        targetPiece.style.backgroundPosition = `-${pieces[draggedId].x * 80}px -${pieces[draggedId].y * 80}px`;
 
         // Swap data posisi potongan
         const temp = pieces[draggedId];
@@ -92,7 +101,10 @@ finishBtn.addEventListener('click', () => {
 function checkPuzzleCompleted() {
     let completed = true;
     for (let i = 0; i < pieces.length; i++) {
-        if (pieces[i].id !== i) {
+        const piece = pieces[i];
+        const pieceElement = document.querySelector(`.piece[data-id='${piece.id}']`);
+
+        if (piece.x !== piece.correctX || piece.y !== piece.correctY) {
             completed = false;
             break;
         }
@@ -102,6 +114,3 @@ function checkPuzzleCompleted() {
         finishBtn.style.display = 'block'; // Tampilkan tombol finish jika selesai
     }
 }
-
-// Menambahkan cek puzzle selesai setiap kali ada perubahan
-createPieces();
