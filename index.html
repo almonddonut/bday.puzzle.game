@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Audio elements -->
     <audio id="background-music" loop>
         <source src="musik_latar.mp3" type="audio/mp3">
     </audio>
@@ -29,6 +30,25 @@
         <button id="finish-btn" style="display: none;">Finish 🎉</button>
         <p id="win-message" style="display: none;">That’s lit, no cap!🔥</p>
     </div>
+
+    <script>
+        document.getElementById("start-btn").addEventListener("click", function() {
+            document.getElementById("opening-screen").style.display = "none";
+            document.getElementById("puzzle-container").style.display = "block";
+            
+            // Play background music
+            let music = document.getElementById("background-music");
+            if (music) {
+                music.volume = 0.5;
+                music.play().catch(error => console.log("Autoplay blocked, user interaction needed"));
+            }
+        });
+
+        // Ensure music restarts if ended
+        document.getElementById("background-music").addEventListener("ended", function() {
+            this.play();
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
