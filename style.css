@@ -7,17 +7,13 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    background-color: #f8f8f8;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
     flex-direction: column;
-}
-
-h1, p {
-    font-family: 'Arial', sans-serif;
 }
 
 /* Opening Screen Styles */
@@ -27,62 +23,67 @@ h1, p {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(135deg, #ff7fb2, #9b58b8); /* Gradasi pink dan purple */
+    background: linear-gradient(135deg, #ff9a8b, #ff6a88); /* Soft pink and purple */
     color: white;
     text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
 #opening-screen h1 {
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #opening-screen p {
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-bottom: 40px;
     font-family: 'Verdana', sans-serif;
 }
 
 #opening-screen button {
     padding: 15px 30px;
-    background-color: #ff7f50;
+    background-color: #ff6347;
     color: white;
     font-size: 1.5em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #opening-screen button:hover {
-    background-color: #ff6347;
+    background-color: #ff7f50;
 }
 
 /* Puzzle Game Styles */
 #puzzle-container {
     display: none;
     text-align: center;
-    background: #fff;
+    background: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 80%;
     max-width: 800px;
-    background: linear-gradient(135deg, #ff7fb2, #9b58b8); /* Gradasi pink dan purple */
+    background: linear-gradient(135deg, #ff9a8b, #ff6a88); /* Soft pink and purple */
+    animation: fadeIn 1s ease-out;
 }
 
 #puzzle-container h1 {
     color: white;
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 #puzzle-board {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6x6 grid */
-    grid-gap: 10px;
+    grid-gap: 0px; /* No gap between pieces */
     justify-items: center;
+    position: relative;
 }
 
 .piece {
@@ -93,12 +94,13 @@ h1, p {
     background-position: center;
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: absolute;
 }
 
 button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #ff7f50;
+    background-color: #ff6347;
     color: white;
     border: none;
     border-radius: 10px;
@@ -107,7 +109,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff6347;
+    background-color: #ff7f50;
 }
 
 #win-message {
@@ -132,6 +134,12 @@ button:hover {
     background-color: #ff7f50;
 }
 
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     #puzzle-board {
@@ -141,7 +149,7 @@ button:hover {
 
 @media (max-width: 480px) {
     #puzzle-board {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 grid untuk perangkat kecil */
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid untuk perangkat lebih kecil */
     }
 
     #opening-screen h1 {
