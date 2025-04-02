@@ -1,33 +1,56 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+h1, p {
+    font-family: 'Arial', sans-serif;
+}
+
 /* Opening Screen Styles */
 #opening-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff99cc, #9966ff); /* Gradasi pink dan purple */
+    height: 100%;
+    background: linear-gradient(135deg, #ff7fb2, #9b58b8); /* Gradasi pink dan purple */
     color: white;
     text-align: center;
 }
 
 #opening-screen h1 {
-    font-size: 3em;
+    font-size: 4em;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 #opening-screen p {
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin-bottom: 40px;
+    font-family: 'Verdana', sans-serif;
 }
 
 #opening-screen button {
     padding: 15px 30px;
     background-color: #ff7f50;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.5em;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -37,12 +60,6 @@
 }
 
 /* Puzzle Game Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f0f8ff;
-    margin: 0;
-}
-
 #puzzle-container {
     display: none;
     text-align: center;
@@ -51,11 +68,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 80%;
-    max-width: 600px;
-    background: linear-gradient(135deg, #ff99cc, #9966ff); /* Gradasi pink dan purple */
+    max-width: 800px;
+    background: linear-gradient(135deg, #ff7fb2, #9b58b8); /* Gradasi pink dan purple */
 }
 
-h1 {
+#puzzle-container h1 {
     color: white;
     font-size: 2em;
     margin-bottom: 20px;
@@ -63,14 +80,14 @@ h1 {
 
 #puzzle-board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr); /* 6x6 grid */
     grid-gap: 10px;
     justify-items: center;
 }
 
 .piece {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border: 2px solid #333;
     background-size: cover;
     background-position: center;
@@ -84,7 +101,7 @@ button {
     background-color: #ff7f50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1.1em;
 }
@@ -107,10 +124,31 @@ button:hover {
     color: white;
     font-size: 1.1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 #finish-btn:hover {
     background-color: #ff7f50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #puzzle-board {
+        grid-template-columns: repeat(3, 1fr); /* 3x3 grid untuk perangkat lebih kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    #puzzle-board {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid untuk perangkat kecil */
+    }
+
+    #opening-screen h1 {
+        font-size: 2.5em;
+    }
+
+    #opening-screen p {
+        font-size: 1.5em;
+    }
 }
