@@ -60,4 +60,26 @@ function handleDragStart(e) {
     draggedPiece = e.target;
 }
 
-function
+function handleDragOver(e) {
+    e.preventDefault();
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    const targetPiece = e.target;
+
+    if (draggedPiece !== targetPiece) {
+        const draggedId = draggedPiece.dataset.id;
+        const targetId = targetPiece.dataset.id;
+
+        // Swap posisi potongan
+        draggedPiece.style.backgroundPosition = `-${pieces[targetId].x * 80}px -${pieces[targetId].y * 80}px`;
+        targetPiece.style.backgroundPosition = `-${pieces[draggedId].x * 80}px -${pieces[draggedId].y * 80}px`;
+
+        // Swap data posisi potongan di array pieces
+        const temp = pieces[draggedId];
+        pieces[draggedId] = pieces[targetId];
+        pieces[targetId] = temp;
+
+        // Update posisi x dan y untuk setiap potongan puzzle
+        [pieces[drag
