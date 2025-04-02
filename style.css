@@ -14,7 +14,7 @@ body {
     height: 100vh;
     overflow: hidden;
     flex-direction: column;
-    background: linear-gradient(135deg, #ff6f91, #d55f99); /* Elegant gradient for background */
+    background: #f0c6e4; /* Soft pastel background */
 }
 
 /* Opening Screen Styles */
@@ -24,7 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(135deg, #8a2be2, #ff6347); /* Birthday vibes gradient */
+    background: #FFB6C1; /* Soft pastel pink */
     color: white;
     text-align: center;
     animation: fadeIn 1s ease-out;
@@ -34,7 +34,8 @@ body {
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 20px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Pacifico', cursive; /* Playful font */
     animation: bounceIn 2s ease-out;
 }
 
@@ -44,19 +45,19 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-#opening-screen button {
-    padding: 15px 40px;
-    background-color: #ff6b8b;
+#opening-screen .button-3d {
+    padding: 20px 50px;
+    background-color: #ff79c6;
     color: white;
     font-size: 1.5em;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#opening-screen button:hover {
+#opening-screen .button-3d:hover {
     background-color: #ff4f70;
     transform: scale(1.1);
 }
@@ -71,28 +72,29 @@ body {
     padding: 30px;
     width: 80%;
     max-width: 800px;
-    background: linear-gradient(135deg, #8a2be2, #ff6347);
+    background: #ffebf0; /* Soft pastel background */
     animation: fadeIn 1s ease-out;
 }
 
 #puzzle-container h1 {
-    color: white;
+    color: #ff6b8b;
     font-size: 2.5em;
     margin-bottom: 30px;
     font-weight: bold;
+    font-family: 'Pacifico', cursive; /* Playful font */
 }
 
 #puzzle-board {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6x6 grid */
-    grid-gap: 0px; /* No gap between pieces */
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0px;
     justify-items: center;
     position: relative;
 }
 
 .piece {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border: 2px solid #333;
     background-size: cover;
     background-position: center;
@@ -105,11 +107,11 @@ body {
 
 button {
     margin-top: 30px;
-    padding: 12px 24px;
+    padding: 15px 40px;
     background-color: #ff6b8b;
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 1.2em;
 }
@@ -128,7 +130,7 @@ button:hover {
 
 #finish-btn {
     margin-top: 30px;
-    padding: 15px 40px;
+    padding: 20px 50px;
     background-color: #ff6b8b;
     color: white;
     font-size: 1.5em;
@@ -159,16 +161,30 @@ button:hover {
     100% { transform: translateY(0); }
 }
 
+/* Confetti animation */
+@keyframes confetti {
+    0% { transform: translateY(-100px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.confetti {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #ff79c6;
+    animation: confetti 2s infinite;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     #puzzle-board {
-        grid-template-columns: repeat(4, 1fr); /* 4x4 grid untuk perangkat lebih kecil */
+        grid-template-columns: repeat(4, 1fr); /* 4x4 grid for smaller devices */
     }
 }
 
 @media (max-width: 480px) {
     #puzzle-board {
-        grid-template-columns: repeat(3, 1fr); /* 3x3 grid untuk perangkat lebih kecil */
+        grid-template-columns: repeat(3, 1fr); /* 3x3 grid for smaller devices */
     }
 
     #opening-screen h1 {
