@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f8ff;
+    background-color: #FFEBE8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,34 +23,37 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(135deg, #ff8a00, #da1d56); /* Gradasi warna cerah */
+    background: linear-gradient(135deg, #ff6ec7, #ff7b9d); /* Gradient pink and peach */
     color: white;
     text-align: center;
     animation: fadeIn 1s ease-out;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #opening-screen h1 {
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: bold;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #opening-screen p {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-bottom: 40px;
+    font-family: 'Verdana', sans-serif;
 }
 
 #opening-screen button {
-    padding: 15px 30px;
+    padding: 15px 40px;
     background-color: #ff6b8b;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.6em;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 #opening-screen button:hover {
@@ -67,19 +70,20 @@ body {
     padding: 20px;
     width: 80%;
     max-width: 800px;
-    background: linear-gradient(135deg, #fbd3e9, #bb2d7b);
+    background: #ffffff;
+    position: relative;
 }
 
 #puzzle-container h1 {
-    color: #f8d9f5;
+    color: #ff6ec7;
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 #puzzle-board {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 0px;
+    grid-template-columns: repeat(6, 1fr); /* 6x6 grid */
+    grid-gap: 5px; /* Small gap between pieces */
     justify-items: center;
     position: relative;
 }
@@ -92,40 +96,24 @@ body {
     background-position: center;
     cursor: pointer;
     transition: transform 0.3s ease;
-    position: absolute;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 button {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #ff6b8b;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1.1em;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff4f70;
-}
-
-#finish-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff6b8b;
-    color: white;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#finish-btn:hover {
     background-color: #ff4f70;
 }
 
@@ -136,30 +124,49 @@ button:hover {
     margin-top: 20px;
 }
 
+#finish-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #ff6b8b;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s;
+}
+
+#finish-btn:hover {
+    background-color: #ff4f70;
+}
+
+/* Fade-in Animation */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* Confetti Animation */
-@keyframes confettiFall {
-    0% {
-        opacity: 1;
-        transform: translateY(-100vh);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100vh);
+/* Responsive Design */
+@media (max-width: 768px) {
+    #puzzle-board {
+        grid-template-columns: repeat(4, 1fr); /* 4x4 grid for smaller devices */
     }
 }
 
-.confetti {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: #ff6b8b;
-    opacity: 0;
-    animation: confettiFall 3s linear infinite;
+@media (max-width: 480px) {
+    #puzzle-board {
+        grid-template-columns: repeat(3, 1fr); /* 3x3 grid for smaller devices */
+    }
+
+    #opening-screen h1 {
+        font-size: 2.5em;
+    }
+
+    #opening-screen p {
+        font-size: 1.2em;
+    }
 }
