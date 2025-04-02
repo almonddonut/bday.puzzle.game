@@ -7,13 +7,14 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
     flex-direction: column;
+    background: linear-gradient(135deg, #ff6f91, #d55f99); /* Elegant gradient for background */
 }
 
 /* Opening Screen Styles */
@@ -23,7 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(135deg, #ff7ad9, #ff3da5); /* Gradient pink and purple */
+    background: linear-gradient(135deg, #8a2be2, #ff6347); /* Birthday vibes gradient */
     color: white;
     text-align: center;
     animation: fadeIn 1s ease-out;
@@ -33,50 +34,52 @@ body {
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: bounceIn 2s ease-out;
 }
 
 #opening-screen p {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-bottom: 40px;
-    font-family: 'Verdana', sans-serif;
-    animation: bounceIn 2s ease-in-out;
+    font-family: 'Arial', sans-serif;
 }
 
 #opening-screen button {
-    padding: 15px 30px;
+    padding: 15px 40px;
     background-color: #ff6b8b;
     color: white;
     font-size: 1.5em;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #opening-screen button:hover {
     background-color: #ff4f70;
+    transform: scale(1.1);
 }
 
 /* Puzzle Game Styles */
 #puzzle-container {
     display: none;
     text-align: center;
-    background: #ffffff;
+    background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
     width: 80%;
     max-width: 800px;
-    background: linear-gradient(135deg, #ff7ad9, #ff3da5); /* Gradient pink and purple */
+    background: linear-gradient(135deg, #8a2be2, #ff6347);
     animation: fadeIn 1s ease-out;
 }
 
 #puzzle-container h1 {
     color: white;
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 #puzzle-board {
@@ -88,26 +91,27 @@ body {
 }
 
 .piece {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border: 2px solid #333;
     background-size: cover;
     background-position: center;
     cursor: pointer;
     transition: transform 0.3s ease;
     position: absolute;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 30px;
+    padding: 12px 24px;
     background-color: #ff6b8b;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 button:hover {
@@ -119,16 +123,17 @@ button:hover {
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 20px;
+    font-family: 'Verdana', sans-serif;
 }
 
 #finish-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 30px;
+    padding: 15px 40px;
     background-color: #ff6b8b;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.5em;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
     position: absolute;
     bottom: 20px;
@@ -138,17 +143,17 @@ button:hover {
 
 #finish-btn:hover {
     background-color: #ff4f70;
+    transform: scale(1.1);
 }
 
-/* Fade-in Animation */
+/* Animations */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* Bounce-in Animation for p */
 @keyframes bounceIn {
-    0% { opacity: 0; transform: translateY(-200px); }
+    0% { opacity: 0; transform: translateY(-100px); }
     60% { opacity: 1; transform: translateY(30px); }
     80% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
