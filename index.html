@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puzzle Ulang Tahun - Aghnia</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png">
 </head>
 <body>
     <audio id="background-music" loop>
@@ -16,17 +15,19 @@
         <source src="sound_menang.mp3" type="audio/mp3">
     </audio>
 
+    <!-- Opening screen -->
     <div id="opening-screen">
         <h1>Hi, Aghnia! 🎉</h1>
         <p>You sure you wanna play me? Time to vibe!</p>
         <button id="start-btn">Let's Play 🎂</button>
     </div>
 
+    <!-- Puzzle Game -->
     <div id="puzzle-container" style="display: none;">
         <h1>Happy Birthday Puzzle! 🎈</h1>
         <div id="puzzle-board"></div>
         <button id="finish-btn" style="display: none;">Finish 🎉</button>
-        <p id="win-message" style="display: none;">"That’s lit, no cap!🔥</p>
+        <p id="win-message" style="display: none;">That’s lit, no cap!🔥</p>
     </div>
 
     <script src="script.js"></script>
