@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Jigsaw Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="musik_latar.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Sound Effect for Winning -->
+    <audio id="win-sound">
+        <source src="sound_menang.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Opening Screen -->
+    <div id="opening-screen">
+        <h1>Happy Birthday!</h1>
+        <p>Get ready for a fun puzzle game!</p>
+        <button id="start-btn">Start Game</button>
+    </div>
+
+    <!-- Puzzle Game -->
+    <div id="puzzle-container" style="display: none;">
+        <h1>Happy Birthday Puzzle!</h1>
+        <p>Drag the puzzle pieces to their correct spots!</p>
+        <div id="puzzle-board"></div>
+        <button id="reset-btn">Reset Puzzle</button>
+        <button id="finish-btn" style="display: none;">Finish</button>
+        <p id="win-message" style="display: none;">That’s lit, no cap!🔥</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

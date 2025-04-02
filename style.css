@@ -1,0 +1,116 @@
+/* Opening Screen Styles */
+#opening-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff99cc, #9966ff); /* Gradasi pink dan purple */
+    color: white;
+    text-align: center;
+}
+
+#opening-screen h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#opening-screen p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+#opening-screen button {
+    padding: 15px 30px;
+    background-color: #ff7f50;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#opening-screen button:hover {
+    background-color: #ff6347;
+}
+
+/* Puzzle Game Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f8ff;
+    margin: 0;
+}
+
+#puzzle-container {
+    display: none;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background: linear-gradient(135deg, #ff99cc, #9966ff); /* Gradasi pink dan purple */
+}
+
+h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+}
+
+.piece {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background-color: #ff6347;
+}
+
+#win-message {
+    color: #ff6347;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#finish-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#finish-btn:hover {
+    background-color: #ff7f50;
+}
