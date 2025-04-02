@@ -7,7 +7,7 @@ const winMessage = document.getElementById('win-message');
 const backgroundMusic = document.getElementById('background-music');
 const winSound = document.getElementById('win-sound');
 
-// Gambar puzzle yang akan dibagi
+// Gambar puzzle yang akan dibagi (gunakan gambar bubu_dudu_puzzle.jpg)
 const imageUrl = 'bubu_dudu_puzzle.jpg'; // Ganti dengan foto spesial kamu
 
 // Grid size
@@ -19,7 +19,7 @@ function createPieces() {
     puzzleBoard.innerHTML = '';
     pieces.length = 0;
 
-    const pieceWidth = 480 / gridSize; // Ukuran potongan berdasarkan grid
+    const pieceWidth = 480 / gridSize;
 
     for (let i = 0; i < gridSize * gridSize; i++) {
         const x = i % gridSize;
